@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
@@ -64,6 +65,7 @@ dependencies {
     implementation (libs.androidx.paging.compose)
 
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.paging)
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.hilt.android)
@@ -73,5 +75,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation (libs.gson)
+    implementation (libs.converter.gson)
 
 }

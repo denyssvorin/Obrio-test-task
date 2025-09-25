@@ -1,4 +1,4 @@
-package com.example.obrio_test_task.ui.theme
+package com.example.obrio_test_task.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
