@@ -13,6 +13,7 @@ import com.example.obrio_test_task.data.repository.pagination.PokemonRemoteMedia
 import com.example.obrio_test_task.domain.models.PokemonModel
 import com.example.obrio_test_task.domain.repository.PokemonRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
@@ -35,7 +36,7 @@ class PokemonRepositoryImpl @Inject constructor(
         return Pager(
             config = PagingConfig(
                 pageSize = 100,
-                enablePlaceholders = false,
+                enablePlaceholders = true,
             ),
             remoteMediator = PokemonRemoteMediator(
                 api = api,
@@ -52,7 +53,8 @@ class PokemonRepositoryImpl @Inject constructor(
             }
     }
 
-    override fun getPokemonByIdFromServer(id: Int): Flow<PokemonModel> =
+    @OptIn(ExperimentalCoroutinesApi::class)
+    override fun getPokemonById(id: Int): Flow<PokemonModel> =
         dao.getPokemonById(id)
             .flatMapLatest { local ->
                 if (local != null && local.weight != null) {

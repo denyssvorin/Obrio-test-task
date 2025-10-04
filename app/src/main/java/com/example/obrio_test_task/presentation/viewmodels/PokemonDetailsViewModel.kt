@@ -32,7 +32,7 @@ class PokemonDetailsViewModel @Inject constructor(
     val uiState: StateFlow<PokemonUiState> = _pokemonId
         .filterNotNull()
         .flatMapLatest { id ->
-            repository.getPokemonByIdFromServer(id)
+            repository.getPokemonById(id)
                 .map {
                     PokemonUiState(isLoading = false, pokemon = it.toPokemonUiModel()) }
                 .onStart {

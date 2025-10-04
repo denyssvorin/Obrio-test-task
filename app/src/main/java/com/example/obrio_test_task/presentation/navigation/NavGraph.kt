@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.example.obrio_test_task.presentation.screens.PokemonDetailsScreen
-import com.example.obrio_test_task.presentation.screens.PokemonListScreen
+import com.example.obrio_test_task.presentation.screens.details.PokemonDetailsScreen
+import com.example.obrio_test_task.presentation.screens.list.PokemonListScreen
 
 @Composable
 fun NavGraph() {

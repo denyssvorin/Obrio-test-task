@@ -1,5 +1,6 @@
 package com.example.obrio_test_task.presentation.viewmodels
 
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -52,6 +53,8 @@ class PokemonListViewModel @Inject constructor(
     private val _navigateToPokemon = MutableSharedFlow<Int>()
     val navigateToPokemon: Flow<Int> = _navigateToPokemon.distinctUntilChanged()
 
+    val listState = LazyListState()
+
     fun onPokemonClick(id: Int) {
         viewModelScope.launch {
             _navigateToPokemon.emit(id)
@@ -64,8 +67,6 @@ class PokemonListViewModel @Inject constructor(
     }
 
     fun onDeleteClick(pokemonUiModel: PokemonUiModel) = viewModelScope.launch {
-//        repository.deletePokemon(pokemonUiModel.toPokemonModel())
-
         val updatedPokemon = pokemonUiModel.copy(isDeleted = true)
         repository.updatePokemon(updatedPokemon.toPokemonModel())
     }

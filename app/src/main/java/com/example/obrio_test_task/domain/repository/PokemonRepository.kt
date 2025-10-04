@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface PokemonRepository {
     fun getPokemons(): Flow<PagingData<PokemonModel>>
-    fun getPokemonByIdFromServer(id: Int): Flow<PokemonModel>
+    fun getPokemonById(id: Int): Flow<PokemonModel>
     fun getFavoritesCount(): Flow<Int>
     suspend fun updatePokemon(pokemonModel: PokemonModel)
     suspend fun deletePokemon(pokemonModel: PokemonModel)

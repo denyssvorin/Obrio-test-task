@@ -34,8 +34,9 @@ class ImageMemoryCache(private val maxSize: Int = 20) {
     private suspend fun downloadImage(url: String): Bitmap? {
         return withContext(Dispatchers.IO) {
             try {
-                val stream = URL(url).openStream()
-                BitmapFactory.decodeStream(stream)
+                URL(url).openStream().use { stream ->
+                    BitmapFactory.decodeStream(stream)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
                 if (e is CancellationException) throw e

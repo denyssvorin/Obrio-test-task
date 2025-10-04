@@ -5,4 +5,11 @@
     <string name="back">Back</string>
     <string name="favorite">Favorite</string>
     <string name="delete">Delete</string>
+    <string name="next_error">Error: %1$s</string>
+    <string name="name">Name: %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="height">Height: %1$s</string>
+    <string name="weight">Weight: %1$s</string>
+    <string name="load_error">Load error: %1$s</string>
+    <string name="unknown_error">Unknown error</string>
 </resources>
